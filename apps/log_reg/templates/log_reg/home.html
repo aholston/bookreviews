@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>Welcome, {{user.first_name}}</h2>
+    <a href='/addreview'>Add a new Review!</a>
+    <a href='/logout'>Log out</a>
+
+    <h3>Recent Book Reviews:</h3>
+    {% for x in recent_reviews %}
+    <p><a href='/users/{{x.user.id}}'>{{x.user.first_name}}<a> gave <a href='/viewbook/{{x.book.id}}'>{{x.book.title}}</a> {{x.rating}} star(s) and says: "{{x.review}}"</p>
+    {% endfor %}
+
+    <div id='book_scroll'>
+      <h3>More reviews:</h3>
+      <ul>
+      {% for x in book_scroll %}
+        <li><a href='/viewbook/{{x.id}}'>{{x.title}}</a></li>
+      {% endfor %}
+      </ul>
+
+    </div>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href='/home'>Home</a>
+    <a href='/addreview'>Add a new Review!</a>
+    <a href='/logout'>Log out</a>
+
+    <h3> User Alias: {{user.first_name}}</h3>
+    <p>Name: {{user.first_name}} {{user.last_name}}</p>
+    <p>Email: {{user.email}}</p>
+    <p>Total Reviews: {{total_reviews}}</p>
+
+
+    <h4>Recently reviewed:</h4>
+    <ul>
+    {% for x in recent_reviews %}
+      <li><a href='/viewbook/{{x.book.id}}'>{{x.book.title}}</a></li>
+    {% endfor %}
+
+  </body>
+</html>
